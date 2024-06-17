@@ -8,6 +8,21 @@ function convertToRoman(num) {
       5:['V', 5], 
       6:['I', 1]
     };
+	let roman = ""; 
+	const romanSymbols = Object.values(obj);
+
+    // Loop through the symbols, subtracting from the number and adding to the result
+    for (let i = 0; i < romanSymbols.length; i++) {
+        let symbol = romanSymbols[i][0];
+        let value = romanSymbols[i][1];
+        
+        while (num >= value) {
+            roman += symbol;
+            num -= value;
+        }
+    }
+
+    return roman;
 
   //your code here
 
